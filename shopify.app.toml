@@ -3,7 +3,7 @@
 client_id = "626bc6d5e882c2548f50671a3339ff76"
 name = "Easy Badge Test"
 handle = "easy-badge-test"
-application_url = "https://rewards-arts-kenneth-mean.trycloudflare.com"
+application_url = "https://gas-bag-passage-genesis.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -12,9 +12,9 @@ scopes = "read_files,read_products,read_themes,write_content,write_files,write_t
 
 [auth]
 redirect_urls = [
-  "https://rewards-arts-kenneth-mean.trycloudflare.com/auth/callback",
-  "https://rewards-arts-kenneth-mean.trycloudflare.com/auth/shopify/callback",
-  "https://rewards-arts-kenneth-mean.trycloudflare.com/api/auth/callback"
+  "https://gas-bag-passage-genesis.trycloudflare.com/auth/callback",
+  "https://gas-bag-passage-genesis.trycloudflare.com/auth/shopify/callback",
+  "https://gas-bag-passage-genesis.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

@@ -1,93 +1,56 @@
-import {
-  Card,
-  Page,
-  Layout,
-  TextContainer,
-  Image,
-  Stack,
-  Link,
-  Text,
-} from "@shopify/polaris";
-import { TitleBar } from "@shopify/app-bridge-react";
-import { useTranslation, Trans } from "react-i18next";
+import { Banner, Box, CalloutCard, Card, Layout, List, Page, Text } from '@shopify/polaris'
+import React from 'react'
 
-import { trophyImage } from "../assets";
-
-import { ProductsCard } from "../components";
-
-export default function HomePage() {
-  const { t } = useTranslation();
+const DashboardPage = () => {
   return (
-    <Page narrowWidth>
-      <TitleBar title={t("HomePage.title")} />
+    <Page
+      title="Darhboard"
+      primaryAction={{ content: 'Save', disabled: true }}
+    >
       <Layout>
         <Layout.Section>
-          <Card sectioned>
-            <Stack
-              wrap={false}
-              spacing="extraTight"
-              distribution="trailing"
-              alignment="center"
-            >
-              <Stack.Item fill>
-                <TextContainer spacing="loose">
-                  <Text as="h2" variant="headingMd">
-                    {t("HomePage.heading")}
-                  </Text>
-                  <p>
-                    <Trans
-                      i18nKey="HomePage.yourAppIsReadyToExplore"
-                      components={{
-                        PolarisLink: (
-                          <Link url="https://polaris.shopify.com/" external />
-                        ),
-                        AdminApiLink: (
-                          <Link
-                            url="https://shopify.dev/api/admin-graphql"
-                            external
-                          />
-                        ),
-                        AppBridgeLink: (
-                          <Link
-                            url="https://shopify.dev/apps/tools/app-bridge"
-                            external
-                          />
-                        ),
-                      }}
-                    />
-                  </p>
-                  <p>{t("HomePage.startPopulatingYourApp")}</p>
-                  <p>
-                    <Trans
-                      i18nKey="HomePage.learnMore"
-                      components={{
-                        ShopifyTutorialLink: (
-                          <Link
-                            url="https://shopify.dev/apps/getting-started/add-functionality"
-                            external
-                          />
-                        ),
-                      }}
-                    />
-                  </p>
-                </TextContainer>
-              </Stack.Item>
-              <Stack.Item>
-                <div style={{ padding: "0 20px" }}>
-                  <Image
-                    source={trophyImage}
-                    alt={t("HomePage.trophyAltText")}
-                    width={120}
-                  />
-                </div>
-              </Stack.Item>
-            </Stack>
-          </Card>
+          <Banner 
+            title="Online store dashboard" 
+            onDismiss={() => {}}
+            tone="warning"
+          >
+            <p>View a summary of your online store’s performance.</p>
+          </Banner>
         </Layout.Section>
+
         <Layout.Section>
-          <ProductsCard />
+          <Banner
+              title="The app is disabled on your published theme."
+              action={
+                  {
+                      content: 'Enable on theme editor'
+                  }
+              }
+              tone="warning"
+          >
+            <List>
+                <List.Item>
+                    Disabling the app will prevent it from working as intended.
+                </List.Item>
+            </List>
+          </Banner>
+        </Layout.Section>
+
+        <Layout.Section>
+          <CalloutCard
+              title="Learn more about how to make the most of the Easy Effects app"
+              illustration="https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg"
+              primaryAction={{
+                  content: 'Read article',
+                  url: '#',
+              }}
+          >
+            <p>A complete guide to the steps to create the effect you want.</p>
+          </CalloutCard>
         </Layout.Section>
       </Layout>
     </Page>
-  );
+  )
 }
+
+export default DashboardPage
